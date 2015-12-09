@@ -15,12 +15,18 @@ kafka-pkg-setup:
 kafka-config:
   file.managed:
     - name: /etc/kafka/server.properties
-    - source: salt://kafka/server.properties
+    - source: salt://kafka/files/server.properties
     - template: jinja
     - context:
       zookeepers: {{ zk.connection_string }}
     - require:
       - pkg: kafka-server
+
+kafka-environment:
+  file.managed:
+    - name: /etc/default/kafka
+    - source: salt://kafka/files/kafka.default
+    - template: jinja
 
 kafka-service:
   service.running:
@@ -29,3 +35,4 @@ kafka-service:
     - require:
       - pkg: kafka-server
       - file: kafka-config
+      - file: kafka-environment
