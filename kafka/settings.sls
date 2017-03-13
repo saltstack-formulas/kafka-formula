@@ -14,8 +14,9 @@
 
 {%- set kafka = {} %}
 {%- do kafka.update({
-  'heap_initial_size' : heap_initial_size,
-  'heap_max_size'     : heap_max_size,
-  'chroot_path'       : chroot_path,
-  'config_properties' : config_properties,
+  'heap_initial_size'        : heap_initial_size,
+  'heap_max_size'            : heap_max_size,
+  'chroot_path'              : chroot_path,
+  'restart_on_config_change' : restart_on_config_change,
+  'config_properties'        : config_properties,
 }) %}
