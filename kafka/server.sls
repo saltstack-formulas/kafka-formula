@@ -31,7 +31,6 @@ kafka-service:
     - enable: True
     - require:
       - pkg: confluent-kafka-2.11
-      - file: kafka-config
       - file: kafka-environment
       - file: kafka-systemd-unit
     {%- if kafka.restart_on_config_change == True %}
