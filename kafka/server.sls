@@ -1,4 +1,5 @@
 {%- from 'zookeeper/settings.sls' import zk with context %}
+{%- from 'kafka/settings.sls' import kafka with context %}
 
 include:
   - kafka
@@ -33,3 +34,7 @@ kafka-service:
       - file: kafka-config
       - file: kafka-environment
       - file: kafka-systemd-unit
+    {%- if kafka.restart_on_config_change == True %}
+    - watch:
+      - file: kafka-config
+    {%- endif %}

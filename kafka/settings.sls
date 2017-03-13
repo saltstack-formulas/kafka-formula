@@ -8,6 +8,7 @@
 
 {%- set chroot_path = gc.get('chroot_path', pc.get('chroot_path', 'kafka')) %}
 
+{%- set restart_on_config_change = pc.get('restart_on_config_change', False) %}
 
 {%- set config_properties = gc.get('properties', pc.get('properties', {})) %}
 
