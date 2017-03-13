@@ -1,0 +1,7 @@
+kafka:
+  config:
+    heap_initial_size: 1G
+    heap_max_size: 1G
+    chroot_path: kafka/team_cluster
+    properties:
+      delete.topic.enable: 'true'
