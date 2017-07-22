@@ -10,6 +10,8 @@
 
 {%- set restart_on_config_change = pc.get('restart_on_config_change', False) %}
 
+{%- set jmx_port = pc.get('jmx_port', False) %}
+
 {%- set config_properties = gc.get('properties', pc.get('properties', {})) %}
 
 {%- set kafka = {} %}
@@ -18,5 +20,6 @@
   'heap_max_size'            : heap_max_size,
   'chroot_path'              : chroot_path,
   'restart_on_config_change' : restart_on_config_change,
+  'jmx_port'                 : jmx_port,
   'config_properties'        : config_properties,
 }) %}

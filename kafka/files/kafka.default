@@ -12,7 +12,9 @@ KAFKA_CONFIG=/etc/kafka
 
 # The default JMX_PORT for Kafka Brokers is 9999.
 # Set JMX_PORT to something else to override this.
-#JMX_PORT=9999
+{%- if kafka.jmx_port %}
+JMX_PORT={{ kafka.jmx_port }}
+{%- endif %}
 #KAFKA_JMX_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false"}
 
 # Memory sizes, and logging configuration
