@@ -4,5 +4,6 @@ kafka:
     heap_max_size: 1G
     chroot_path: kafka/team_cluster
     restart_on_config_change: True
+    jmx_port: 9999
     properties:
       delete.topic.enable: 'true'
