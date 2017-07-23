@@ -25,6 +25,8 @@ KAFKA_CONFIG=/etc/kafka
 #KAFKA_JVM_PERFORMANCE_OPTS="-server -XX:PermSize=48m -XX:MaxPermSize=48m -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35"
 
 KAFKA_HEAP_OPTS="-Xmx{{ kafka.heap_max_size }} -Xms{{ kafka.heap_initial_size}}"
+KAFKA_OPTS=" \
 {%- for option in kafka.jvm_opts %}
-KAFKA_OPTS="$KAFKA_OPTS {{ option }}"
+{{ option }} \
 {%- endfor %}
+"
