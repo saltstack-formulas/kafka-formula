@@ -6,7 +6,7 @@
 {%- set heap_initial_size = gc.get('heap_initial_size', pc.get('heap_initial_size', '1G')) %}
 {%- set heap_max_size = gc.get('heap_max_size', pc.get('heap_max_size', '1G')) %}
 
-{%- set chroot_path = gc.get('chroot_path', pc.get('chroot_path', 'kafka')) %}
+{%- set chroot_path = gc.get('chroot_path', pc.get('chroot_path')) %}
 
 {%- set restart_on_config_change = pc.get('restart_on_config_change', False) %}
 
