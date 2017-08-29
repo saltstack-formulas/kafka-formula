@@ -9,6 +9,11 @@ Formula to set up and configure a single-node Kafka server or multi-node Kafka c
     See the full `Salt Formulas installation and usage instructions
     <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
 
+Formula Dependencies
+====================
+
+* `zookeeper-formula <https://github.com/saltstack-formulas/zookeeper-formula>`_
+
 Available states
 ================
 
