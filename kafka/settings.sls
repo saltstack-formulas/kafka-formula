@@ -3,6 +3,8 @@
 {% set g = salt['grains.get']('kafka', {}) %}
 {% set gc = g.get('config', {}) %}
 
+{%- set jvm_opts = p.get('jvm_opts', []) %}
+
 {%- set heap_initial_size = gc.get('heap_initial_size', pc.get('heap_initial_size', '1G')) %}
 {%- set heap_max_size = gc.get('heap_max_size', pc.get('heap_max_size', '1G')) %}
 
@@ -14,6 +16,7 @@
 
 {%- set kafka = {} %}
 {%- do kafka.update({
+  'jvm_opts'                 : jvm_opts,
   'heap_initial_size'        : heap_initial_size,
   'heap_max_size'            : heap_max_size,
   'chroot_path'              : chroot_path,
