@@ -3,7 +3,7 @@ Description=Kafka Schema Registry
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/schema-registry-start /etc/schema-registry/schema-registry.peroperties
+ExecStart=/usr/bin/schema-registry-start /etc/schema-registry/schema-registry.properties
 
 [Install]
 WantedBy=multi-user.target
