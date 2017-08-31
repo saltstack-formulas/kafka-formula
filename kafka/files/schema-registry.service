@@ -1,0 +1,9 @@
+[Unit]
+Description=Kafka Schema Registry
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/schema-registry-start /etc/schema-registry/schema-registry.peroperties
+
+[Install]
+WantedBy=multi-user.target

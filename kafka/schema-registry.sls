@@ -11,3 +11,13 @@ configure Schema Registry:
     - template: jinja
     - context:
       zookeepers: {{ zk.connection_string }}
+
+systemd unit file for Schema Registry:
+  file.managed:
+    - name: /lib/systemd/system/schema-registry.service
+    - source: salt://kafka/files/schema-registry.service
+
+start Schema Registry service:
+  service.running:
+    - name: schema-registry
+    - enable: True
