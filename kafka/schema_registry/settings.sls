@@ -1,6 +1,6 @@
-{%- set p  = salt['pillar.get']('schema-registry', {}) %}
+{%- set p  = salt['pillar.get']('schema_registry', {}) %}
 {%- set pc = p.get('config', {}) %}
-{%- set g  = salt['grains.get']('schema-registry', {}) %}
+{%- set g  = salt['grains.get']('schema_registry', {}) %}
 {%- set gc = g.get('config', {}) %}
 
 {%- set config_properties = gc.get('properties', pc.get('properties', {})) %}
