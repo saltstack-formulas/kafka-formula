@@ -3,6 +3,7 @@ Description=Kafka Schema Registry
 After=network.target
 
 [Service]
+EnvironmentFile=-/etc/default/schema-registry
 ExecStart=/usr/bin/schema-registry-start /etc/schema-registry/schema-registry.properties
 
 [Install]
