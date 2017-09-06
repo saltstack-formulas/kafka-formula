@@ -22,7 +22,7 @@ Schema Registry environment file:
   file.managed:
     - name: /etc/default/schema-registry
     - source: salt://kafka/files/schema-registry.env
-    - temaplte: jinja
+    - template: jinja
 
 start Schema Registry service:
   service.running:
