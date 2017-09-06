@@ -1,4 +1,5 @@
 {%- from 'zookeeper/settings.sls' import zk with context %}
+{%- from 'kafka/schema_registry/settings.sls' import schema_registry with context %}
 
 install Kafka Schema Registry:
   pkg.installed:
