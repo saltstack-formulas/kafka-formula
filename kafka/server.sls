@@ -25,6 +25,12 @@ kafka-environment:
     - source: salt://kafka/files/kafka.default
     - template: jinja
 
+Kafka data directory:
+  file.directory:
+    - name: {{ kafka.data_dir }}
+    - user: kafka
+    - group: kafka
+
 kafka-service:
   service.running:
     - name: kafka
@@ -33,6 +39,7 @@ kafka-service:
       - pkg: confluent-kafka-2.11
       - file: kafka-environment
       - file: kafka-systemd-unit
+      - file: Kafka data directory
     {%- if kafka.restart_on_config_change == True %}
     - watch:
       - file: kafka-config

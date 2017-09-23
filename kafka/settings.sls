@@ -8,6 +8,7 @@
 {%- set heap_initial_size = gc.get('heap_initial_size', pc.get('heap_initial_size', '1G')) %}
 {%- set heap_max_size = gc.get('heap_max_size', pc.get('heap_max_size', '1G')) %}
 
+{%- set data_dir = gc.get('data_dir', pc.get('data_dir', '/var/lib/kafka')) %}
 {%- set broker_id = gc.get('broker_id', pc.get('broker_id', None)) %}
 {%- set chroot_path = gc.get('chroot_path', pc.get('chroot_path', 'kafka')) %}
 
@@ -17,6 +18,7 @@
 
 {%- set kafka = {} %}
 {%- do kafka.update({
+  'data_dir'                 : data_dir,
   'jvm_opts'                 : jvm_opts,
   'heap_initial_size'        : heap_initial_size,
   'heap_max_size'            : heap_max_size,
