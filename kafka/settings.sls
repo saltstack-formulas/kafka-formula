@@ -3,6 +3,8 @@
 {% set g = salt['grains.get']('kafka', {}) %}
 {% set gc = g.get('config', {}) %}
 
+{%- set java_home         = salt['grains.get']('java_home', salt['pillar.get']('java_home', '/usr/lib/java')) %}
+
 {%- set jvm_opts = p.get('jvm_opts', []) %}
 
 {%- set heap_initial_size = gc.get('heap_initial_size', pc.get('heap_initial_size', '1G')) %}
@@ -17,6 +19,7 @@
 
 {%- set kafka = {} %}
 {%- do kafka.update({
+  'java_home'                : java_home,
   'jvm_opts'                 : jvm_opts,
   'heap_initial_size'        : heap_initial_size,
   'heap_max_size'            : heap_max_size,
