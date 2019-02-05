@@ -11,6 +11,7 @@
 {%- set heap_max_size = gc.get('heap_max_size', pc.get('heap_max_size', '1G')) %}
 
 {%- set broker_id = gc.get('broker_id', pc.get('broker_id', None)) %}
+{%- set retention_hours = gc.get('retention_hours', pc.get('retention_hours', 'kafka')) %}
 {%- set chroot_path = gc.get('chroot_path', pc.get('chroot_path', 'kafka')) %}
 
 {%- set restart_on_config_change = pc.get('restart_on_config_change', False) %}
@@ -24,6 +25,7 @@
   'heap_initial_size'        : heap_initial_size,
   'heap_max_size'            : heap_max_size,
   'broker_id'                : broker_id,
+  'retention_hours'          : retention_hours,
   'chroot_path'              : chroot_path,
   'restart_on_config_change' : restart_on_config_change,
   'config_properties'        : config_properties,
